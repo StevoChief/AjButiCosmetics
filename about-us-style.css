@@ -10,8 +10,32 @@ body {
     text-decoration: none;
 }
 
-.sidebar {
+.header {
+    z-index: 5;
+    background-color: rgba(255, 255, 255, 0.8);
+    position: absolute;
+    width: 100%;
+    height: 7.5%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    top: 0px;
+}
+
+.sticky {
     position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+  .stickyBtn {
+      position: fixed;
+  }
+
+.sidebar {
+    z-index: 1110;
+    position: fixed;
+    top: 0px;
     left: -250px;
     width: 250px;
     height: 100%;
@@ -19,12 +43,12 @@ body {
     transition: all .5s ease;
 }
 .sidebar header {
-    font-size: 22px;
-    color: white;
     text-align: center;
     line-height: 70px;
     background: rgb(0, 0, 0, .2);
     user-select: none;
+    height: 25%;
+    margin: auto;
 
 }
 .sidebar ul a {
@@ -46,6 +70,10 @@ body {
     color: #2e2ef5;
 }
 
+label #cancel:hover, label #btn:hover {
+    color: #2e2ef5;
+}
+
 .sidebar ul a i {
     margin-right: 16px;
 }
@@ -54,7 +82,7 @@ body {
     display: none;
 }
 
-label #btn,label #cancel {
+label #btn, label #cancel {
     position: absolute;
     cursor: pointer;
     background: black;
@@ -62,12 +90,14 @@ label #btn,label #cancel {
 }
 
 label #btn {
+    z-index: 6;
     left: 40px;
-    top: 25px;
+    top: 11px;
     font-size: 35px;
     color: white;
     padding: 6px 12px;
     transition: all .5s;
+    position: fixed;
 }
 
 label #cancel {
@@ -78,6 +108,14 @@ label #cancel {
     color: white;
     padding: 4px 9px;
     transition: all .5s ease;
+}
+
+label #logo {
+    margin-top: 10px;
+    transition: all .5s;
+    height: 100%;
+    margin-left: 750px;
+    pointer-events: none;
 }
 
 #check:checked ~ .sidebar {
@@ -92,16 +130,23 @@ label #cancel {
 
 #check:checked ~ label #cancel {
     left: 195px;
+    position: fixed;
 }
 
-#check:checked ~ section {
+#check:checked ~ body {
     margin-left: 250px;
 }
 
-section {
-    background: url(eye.jpg) no-repeat;
+body {
+    background: url(eye.jpg);
+    background-attachment: fixed;
     background-position: center;
     background-size: cover;
     height: 100vh;
-    transition: all .5s;
+    transition: all .5s ease;
+    margin-top: -24px;
+}
+
+#check:checked ~ label #logo {
+    margin-left: 1000px;
 }

@@ -11,6 +11,7 @@ body {
 }
 
 .header {
+    z-index: 5;
     background-color: rgba(255, 255, 255, 0.8);
     position: absolute;
     width: 100%;
@@ -18,50 +19,28 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    top: 0px;
 }
 
-.horizTranslate {
-    animation-name: horiz;
-    animation-duration: .5s;
-    animation-fill-mode: forwards;
-}
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
 
-.minhorizTranslate {
-    animation-name: minhoriz;
-    animation-duration: .5s;
-    animation-fill-mode: forwards; 
-}
-
-@keyframes horiz {
-    from {margin-left: 39.5%;}
-    to {margin-left: 50%;}
-}
-
-@keyframes minhoriz {
-    from {margin-left: 39.5%;}
-    to {margin-left: 60.5%;}
-}
-
-input[type=checkbox]:not(:checked) ~ .header {
-    animation-name: minhoriz;
-}
-
-.header #logo {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    height: 100%;
-    margin-top: 10px;
-}
+  .stickyBtn {
+      position: fixed;
+  }
 
 .sidebar {
+    z-index: 1110;
     position: fixed;
     top: 0px;
     left: -250px;
     width: 250px;
     height: 100%;
     background-image: linear-gradient(to bottom, black, #caa670, #703b94, #2e2ef5);
-    -webkit-transition: all .5s ease;
+    transition: all .5s ease;
 }
 .sidebar header {
     text-align: center;
@@ -91,6 +70,10 @@ input[type=checkbox]:not(:checked) ~ .header {
     color: #2e2ef5;
 }
 
+label #cancel:hover, label #btn:hover {
+    color: #2e2ef5;
+}
+
 .sidebar ul a i {
     margin-right: 16px;
 }
@@ -99,7 +82,7 @@ input[type=checkbox]:not(:checked) ~ .header {
     display: none;
 }
 
-label #btn,label #cancel {
+label #btn, label #cancel {
     position: absolute;
     cursor: pointer;
     background: black;
@@ -107,12 +90,14 @@ label #btn,label #cancel {
 }
 
 label #btn {
+    z-index: 6;
     left: 40px;
     top: 11px;
     font-size: 35px;
     color: white;
     padding: 6px 12px;
     transition: all .5s;
+    position: fixed;
 }
 
 label #cancel {
@@ -123,6 +108,14 @@ label #cancel {
     color: white;
     padding: 4px 9px;
     transition: all .5s ease;
+}
+
+label #logo {
+    margin-top: 10px;
+    transition: all .5s;
+    height: 100%;
+    margin-left: 750px;
+    pointer-events: none;
 }
 
 #check:checked ~ .sidebar {
@@ -137,17 +130,51 @@ label #cancel {
 
 #check:checked ~ label #cancel {
     left: 195px;
+    position: fixed;
 }
 
-#check:checked ~ section {
+#check:checked ~ body {
     margin-left: 250px;
 }
 
-section {
-    background: url(smile.jpg) no-repeat;
+body {
+    background: url(smile.jpg);
+    background-attachment: fixed;
     background-position: center;
     background-size: cover;
     height: 100vh;
-    transition: all .5s;
+    transition: all .5s ease;
     margin-top: -24px;
+}
+
+#check:checked ~ label #logo {
+    margin-left: 1000px;
+}
+
+.photos {
+    position: absolute;
+    flex-direction: column;
+    margin-top: 50px;
+    padding: 0px;
+    transition: all .5s;
+}
+
+.photos ul li{
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+    align-items: center;
+    margin-left: 650px;
+    box-shadow: 0px 0px 8px 8px black;
+    background-color: black;
+}
+
+.photos ul li p {
+    display: flex;
+    color: white;
+    font-size: 25px;
+}
+
+#check:checked ~ .photos {
+    margin-left: 250px;
 }
