@@ -5,8 +5,11 @@
         <title>AjButiCosmetics</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="home-style.css">
-        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <script src="jquery.min.js"></script>
+        <script src="simpleCart.js"></script>
         <script src="store.js" async></script>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script> 
     </head>
     <body class="body">
         <input type="checkbox" id="check">
@@ -14,7 +17,6 @@
             <header class="header" id="myHeader"><img src="letters.png" alt="" id="logo"></header>
            <i class="fas fa-bars" id="btn"></i>
            <i class="fas fa-times" id="cancel"></i>
-           
         </label>
         <div class="sidebar">
             <Header><img src="AJPNG.png" alt="" height="250px" width="250px" id="logo"></Header>
@@ -37,6 +39,11 @@
                 <li><img src="5.jpeg" alt=""><p>Stephen is awesome</p></li>
             </ul>
         </div>
+        <div class="cartLogo">
+            <a class="fa fa-shopping-cart fa-2x" href="cart.html">
+                    <span class="simpleCart_quantity"></span>
+                    <span class="simpleCart_total"></span>
+            </a>
         <section></section>
     </body>
 </html>
